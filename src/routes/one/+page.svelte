@@ -8,6 +8,6 @@
 
 <button onclick={() => count.value++}>
   {count.value}
-  {obj.value}
+  {obj.value.a}
 </button>
 
