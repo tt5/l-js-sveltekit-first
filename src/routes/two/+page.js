@@ -1,4 +1,4 @@
-export const load = async ({fetch}) => {
+export const load = ({ fetch }) => {
   const fetchProducts = async () => {
     const productRes = await fetch('https://dummyjson.com/products?limit?10')
     const productData = await productRes.json()
@@ -12,7 +12,7 @@ export const load = async ({fetch}) => {
   }
 
   return {
-    products: await fetchProducts(),
-    users: await fetchUsers()
+    products: fetchProducts(),
+    users: fetchUsers()
   }
 }

@@ -1,9 +1,18 @@
 <script>
   export let data;
-  let {products} = data
+  const { products } = data;
 </script>
 
-{#each products as product}
-  <h2>{product.title}</h2>
-  <p>{product.description}</p>
-{/each}
+<h1>Shop</h1>
+{#await products}
+  <p>loading</p>
+{:then products}
+  {#each products as product}
+    <h2>
+      <a href="/two/{product.id}" data-svelte-prefetch>
+        {product.title}
+      </a>
+    </h2>
+    <p>{product.description}</p>
+  {/each}
+{/await}
